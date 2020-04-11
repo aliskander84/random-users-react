@@ -1,14 +1,13 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
-import {useSelector} from 'react-redux'
-import {IState} from './store/types'
+import {Header} from './components/Header'
+import {RouterView} from './router/RouterView'
 
 export const App = () => {
-  const {hello} = useSelector<IState, IState>(state => state)
-
-  return (
+  return <>
+    <Header/>
     <Container fluid>
-      {hello}
+      <RouterView/>
     </Container>
-  )
+  </>
 }
