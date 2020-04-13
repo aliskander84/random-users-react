@@ -1,10 +1,17 @@
-export const GET_USERS = 'FETCH_USERS'
+export const GET_USERS = 'GET_USERS'
+export const FETCH_USERS = 'FETCH_USERS'
+export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
+
+export type TAction = TGetUsers
 
 export type TGetUsers = {
   type: string
-  payload: {
-    users: TUsers
-  }
+  users: TUsers
+}
+
+export type TFetchUsers = {
+  type: string
+  users: TUsers
 }
 
 export type TState = {
