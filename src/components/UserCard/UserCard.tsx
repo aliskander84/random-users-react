@@ -1,7 +1,6 @@
 import React from 'react'
-import {TUser} from 'store/types'
-import {Avatar, Button, Card, CardContent, CardHeader, IconButton} from '@material-ui/core'
-import {MoreVert as MoreVertIcon} from '@material-ui/icons'
+import {user} from 'store/types'
+import {Avatar, Card, CardContent} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
 import {Title} from './components/Title'
 import {Id} from './components/Id'
@@ -10,8 +9,6 @@ import {DetailsBtn} from './components/DetailsBtn'
 const useStyles = makeStyles({
   card: {},
   content: {
-    padding: 16,
-    paddingBottom: '16 !important',
     display: 'flex',
     alignItems: 'center'
   },
@@ -23,20 +20,16 @@ const useStyles = makeStyles({
   text: {
     flexGrow: 1
   },
-  header: {
-    // display: 'flex',
-    // alignItems: 'stretch'
-  },
   btn: {
     alignSelf: 'flex-end'
   }
 })
 
-interface IProps {
-  user: TUser
+type props = {
+  user: user
 }
 
-export const UserCard: React.FC<IProps> = ({user}) => {
+export const UserCard: React.FC<props> = ({user}) => {
   const classes = useStyles()
   const {
     name: {title, first, last},
@@ -44,7 +37,7 @@ export const UserCard: React.FC<IProps> = ({user}) => {
     picture: {thumbnail: pic}
   } = user
 
-  return <>
+  return (
     <Card className={classes.card}>
       <CardContent className={classes.content}>
         <Avatar
@@ -60,5 +53,5 @@ export const UserCard: React.FC<IProps> = ({user}) => {
         </div>
       </CardContent>
     </Card>
-  </>
+  )
 }

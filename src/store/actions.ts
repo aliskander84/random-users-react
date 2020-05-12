@@ -1,21 +1,7 @@
-import {FETCH_USERS_SUCCESS, GET_USERS, TFetchUsers, TGetUsers, TUsers} from './types'
-import {joinAPILink} from '../api/api'
+import {FETCH_USERS_SUCCESS, action, users} from './types'
+import {joinAPILink} from 'api/api'
 
-export const getUsers = (limit: number): TGetUsers => {
-  let users: TUsers = []
-
-  // fetchUsers(limit)
-  //   .then(res => res ? users = res : null)
-
-  // console.log(users)
-
-  return {
-    type: GET_USERS,
-    users: users
-  }
-}
-
-export const fetchUsersSuccess = (users: TUsers) => ({
+export const fetchUsersSuccess = (users: users): action => ({
   type: FETCH_USERS_SUCCESS,
   users
 })

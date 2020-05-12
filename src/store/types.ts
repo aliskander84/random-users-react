@@ -1,78 +1,72 @@
 export const GET_USERS = 'GET_USERS'
-export const FETCH_USERS = 'FETCH_USERS'
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
 
-export type TAction = TGetUsers
+export type action = getUsers
 
-export type TGetUsers = {
+export type getUsers = {
   type: string
-  users: TUsers
+  users: users
 }
 
-export type TFetchUsers = {
-  type: string
-  users: TUsers
+export type state = {
+  users: users
 }
 
-export type TState = {
-  users: TUsers
-}
+export type users = user[]
 
-export type TUsers = TUser[]
-
-export type TUser = {
+export type user = {
   gender: string
-  name: TName
-  location: TLocation
+  name: name
+  location: location
   email: string
-  dob: TDOB
+  dob: dob
   phone: string
-  id: TId
-  picture: TPicture
+  id: id
+  picture: picture
 }
 
-type TDOB = {
+type dob = {
   date: string
   age: number
 }
 
-type TName = {
+type name = {
   title: string
   first: string
   last: string
 }
 
-type TLocation = {
-  street: TStreet
+type location = {
+  street: street
   city: string
   state: string
   country: string
   postcode: number
-  coordinates: TCoordinates
-  timezone: TTimezone
+  coordinates: coordinates
+  timezone: timezone
 }
 
-type TTimezone = {
+type timezone = {
   offset: string
   description: string
 }
 
-type TCoordinates = {
+type coordinates = {
   latitude: string
   longitude: string
 }
 
-type TStreet = {
+type street = {
   number: number
   name: string
 }
 
-type TId = {
+type id = {
   name: string
   value: string
 }
 
-type TPicture = {
+type picture = {
   large: string
   medium: string
   thumbnail: string

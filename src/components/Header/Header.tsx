@@ -6,11 +6,11 @@ import {Title} from './components/Title'
 
 export const Header: React.FC = () => {
 
-  return <>
-    <AppBar position="static">
+  return (
+    <AppBar position="sticky">
       <Toolbar>
         <Title text={'Random users'}/>
       </Toolbar>
     </AppBar>
-  </>
+  )
 }
