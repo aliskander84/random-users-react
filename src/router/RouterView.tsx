@@ -1,12 +1,12 @@
 import React from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
-import {User} from 'views/User'
 import {Home} from 'views/Home'
+import {User} from 'views/User'
 
 export const RouterView = () => (
   <Switch>
-    <Route path={'/user'} component={User}/>
     <Route path={'/'} exact component={Home}/>
+    <Route path={'/users/:index'} component={User}/>
     <Redirect to={'/'}/>
   </Switch>
 )

@@ -27,9 +27,10 @@ const useStyles = makeStyles({
 
 type props = {
   user: user
+  index: number
 }
 
-export const UserCard: React.FC<props> = ({user}) => {
+export const UserCard: React.FC<props> = ({user, index}) => {
   const classes = useStyles()
   const {
     name: {title, first, last},
@@ -49,7 +50,7 @@ export const UserCard: React.FC<props> = ({user}) => {
           <Id text={idName}/>
         </div>
         <div className={classes.btn}>
-          <DetailsBtn/>
+          <DetailsBtn index={index}/>
         </div>
       </CardContent>
     </Card>

@@ -44,7 +44,7 @@ export const Home: React.FC = () => {
             xl={4}
           >
             <Box className={classes.userCard}>
-              <UserCard user={user}/>
+              <UserCard user={user} index={idx}/>
             </Box>
           </Grid>
         ))}
