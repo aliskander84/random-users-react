@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {user} from 'store/types'
 import {Avatar, Card, CardContent} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
@@ -37,9 +37,15 @@ export const UserCard: React.FC<props> = ({user, index}) => {
     id: {name: idName},
     picture: {thumbnail: pic}
   } = user
+  const [elevation, setElevation] = useState<number>(1)
 
   return (
-    <Card className={classes.card}>
+    <Card
+      className={classes.card}
+      onMouseOver={() => setElevation(8)}
+      onMouseOut={() => setElevation(1)}
+      elevation={elevation}
+    >
       <CardContent className={classes.content}>
         <Avatar
           src={pic}
