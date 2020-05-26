@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {user} from 'store/types'
+import {TUser} from 'store/types'
 import {Avatar, Card, CardContent} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
 import {Title} from './components/Title'
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 })
 
 type props = {
-  user: user
+  user: TUser
   index: number
 }
 
@@ -37,7 +37,7 @@ export const UserCard: React.FC<props> = ({user, index}) => {
     id: {name: idName},
     picture: {thumbnail: pic}
   } = user
-  const [elevation, setElevation] = useState<number>(1)
+  const [elevation, setElevation] = useState<number>(2)
 
   return (
     <Card

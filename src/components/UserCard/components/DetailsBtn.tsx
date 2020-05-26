@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button} from '@material-ui/core'
-import {Link, Router} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 type props = {
   index: number
@@ -8,6 +8,6 @@ type props = {
 
 export const DetailsBtn: React.FC<props> = ({index}) => (
   <Link to={`users/${index}`}>
-    <Button>Details></Button>
+    <Button color={'inherit'}>Details></Button>
   </Link>
 )

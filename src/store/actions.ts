@@ -1,7 +1,7 @@
-import {FETCH_USERS_SUCCESS, action, users} from './types'
+import {FETCH_USERS_SUCCESS, TAction, TUsers} from './types'
 import {joinAPILink} from 'api/api'
 
-export const fetchUsersSuccess = (users: users): action => ({
+export const fetchUsersSuccess = (users: TUsers): TAction => ({
   type: FETCH_USERS_SUCCESS,
   users
 })

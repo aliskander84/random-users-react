@@ -1,10 +1,10 @@
-import {FETCH_USERS_SUCCESS, GET_USERS, action, state} from './types'
+import {FETCH_USERS_SUCCESS, GET_USERS, TAction, TState} from './types'
 
-const initialState: state = {
+const initialState: TState = {
   users: []
 }
 
-export const reducer = (state = initialState, action: action): state => {
+export const reducer = (state = initialState, action: TAction): TState => {
   switch (action.type) {
     case GET_USERS:
       return {
