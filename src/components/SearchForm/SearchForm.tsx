@@ -67,7 +67,6 @@ export const SearchForm: React.FC = () => {
   }
 
   const clearInput = () => {
-    console.log('clear')
     dispatch(cancelSearch())
     setIsValid(true)
     setHelperText(null)
@@ -88,7 +87,7 @@ export const SearchForm: React.FC = () => {
         onBlur={() => handleFocus(false)}
         onChange={event => handleChange(event.target.value)}
         InputProps={{
-          endAdornment: isClearIcon ? (
+          endAdornment: searchText ? (
             <InputAdornment position={'end'}>
               <IconButton
                 color={'secondary'}
