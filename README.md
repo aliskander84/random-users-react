@@ -1,5 +1,5 @@
 # Random users
-This project simply get few users from [here](https://randomuser.me/), render them, and show user details on btn click
+This app simply get few users from [here](https://randomuser.me/), render them, and show user details on btn click
 ## Stack
 - React
 - Redux
