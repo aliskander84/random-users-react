@@ -1,15 +1,38 @@
 export const GET_USERS = 'GET_USERS'
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS'
+export const SET_SEARCH_TEXT = 'SET_SEARCH_TEXT'
+export const SEARCH = 'SEARCH'
+export const CANCEL_SEARCH = 'CANCEL_SEARCH'
 
-export type TAction = TGetUsers
+export type TAction = TGetUsers | TFetchUsersSuccess | TSetSearchText | TSearch | TCancelSearch
 
-export type TGetUsers = {
-  type: string
+type TGetUsers = {
+  type: typeof GET_USERS
   users: TUsers
+}
+
+type TFetchUsersSuccess = {
+  type: typeof FETCH_USERS_SUCCESS
+  users: TUsers
+}
+
+type TSetSearchText = {
+  type: typeof SET_SEARCH_TEXT
+  searchText: string
+}
+
+type TSearch = {
+  type: typeof SEARCH
+}
+
+type TCancelSearch = {
+  type: typeof CANCEL_SEARCH
 }
 
 export type TState = {
   users: TUsers
+  searchedUsers: TUsers
+  searchText: string
 }
 
 export type TUsers = TUser[]
