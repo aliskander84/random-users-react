@@ -27,7 +27,15 @@ type params = {
 export const User: React.FC = () => {
   const classes = useStyles()
   const {index} = useParams<params>()
-  const user = useSelector<TState, TUser>(state => state.users[index as unknown as number])
+  const user = useSelector<TState, TUser>(state => {
+    const idx = index as unknown as number
+    const isSearch = state.searchedUsers.length !== 0
+    if (isSearch) {
+      return state.searchedUsers[idx]
+    } else {
+      return state.users[idx]
+    }
+  })
   const {
     picture: {large: photo}
   } = user

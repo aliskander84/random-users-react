@@ -2,13 +2,26 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
-import {applyMiddleware, createStore} from 'redux'
+import {applyMiddleware, compose, createStore} from 'redux'
 import {reducer} from 'store/reducer'
 import {BrowserRouter} from 'react-router-dom'
 import 'index.css'
 import {App} from 'App'
 
-const store = createStore(reducer, applyMiddleware(thunk))
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
+  }
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(
+  reducer,
+  composeEnhancers(
+    applyMiddleware(thunk)
+  )
+)
 
 const app = (
   <React.StrictMode>

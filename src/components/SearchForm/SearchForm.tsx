@@ -1,15 +1,19 @@
 import React, {useEffect, useState} from 'react'
-import {TextField} from '@material-ui/core'
+import {IconButton, InputAdornment, TextField} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
 import {useDispatch, useSelector} from 'react-redux'
 import {cancelSearch, search, setSearchText} from '../../store/actions'
 import {TState} from '../../store/types'
+import {Clear as ClearIcon} from '@material-ui/icons'
 
 const useStyles = makeStyles({
   form: {
     paddingTop: 8,
     paddingLeft: 8,
     paddingRight: 8
+  },
+  clearBtn: {
+    zIndex: 100
   }
 })
 
@@ -22,6 +26,7 @@ export const SearchForm: React.FC = () => {
   const [helperText, setHelperText] = useState<string | null>(null)
   const [isValid, setIsValid] = useState<boolean>(true)
   const [isFocus, setIsFocus] = useState<boolean>(false)
+  const [isClearIcon, setIsClearIcon] = useState<boolean>(false)
   const searchText = useSelector<TState, string>(state => state.searchText)
 
   useEffect(() => {
@@ -30,6 +35,11 @@ export const SearchForm: React.FC = () => {
 
   const handleFocus = (isFocus: boolean): void => {
     setIsFocus(isFocus)
+    if (isFocus) {
+      setIsClearIcon(true)
+    } else {
+      setIsClearIcon(false)
+    }
     if (isValid) {
       if (isFocus) {
         setHelperText(helper)
@@ -56,6 +66,14 @@ export const SearchForm: React.FC = () => {
     }
   }
 
+  const clearInput = () => {
+    console.log('clear')
+    dispatch(cancelSearch())
+    setIsValid(true)
+    setHelperText(null)
+    setIsClearIcon(false)
+  }
+
   return (
     <form autoComplete={'off'} className={classes.form}>
       <TextField
@@ -69,6 +87,20 @@ export const SearchForm: React.FC = () => {
         onFocus={() => handleFocus(true)}
         onBlur={() => handleFocus(false)}
         onChange={event => handleChange(event.target.value)}
+        InputProps={{
+          endAdornment: isClearIcon ? (
+            <InputAdornment position={'end'}>
+              <IconButton
+                color={'secondary'}
+                edge={'end'}
+                onClick={clearInput}
+                className={classes.clearBtn}
+              >
+                <ClearIcon/>
+              </IconButton>
+            </InputAdornment>
+          ) : null
+        }}
       />
     </form>
   )

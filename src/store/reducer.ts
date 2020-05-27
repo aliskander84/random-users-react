@@ -36,7 +36,8 @@ export const reducer = (state = initialState, action: TAction): TState => {
     case CANCEL_SEARCH:
       return {
         ...state,
-        searchedUsers: []
+        searchedUsers: [],
+        searchText: ''
       }
     default:
       return state
