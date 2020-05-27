@@ -26,7 +26,6 @@ export const SearchForm: React.FC = () => {
   const [helperText, setHelperText] = useState<string | null>(null)
   const [isValid, setIsValid] = useState<boolean>(true)
   const [isFocus, setIsFocus] = useState<boolean>(false)
-  const [isClearIcon, setIsClearIcon] = useState<boolean>(false)
   const searchText = useSelector<TState, string>(state => state.searchText)
 
   useEffect(() => {
@@ -35,11 +34,6 @@ export const SearchForm: React.FC = () => {
 
   const handleFocus = (isFocus: boolean): void => {
     setIsFocus(isFocus)
-    if (isFocus) {
-      setIsClearIcon(true)
-    } else {
-      setIsClearIcon(false)
-    }
     if (isValid) {
       if (isFocus) {
         setHelperText(helper)
@@ -70,7 +64,6 @@ export const SearchForm: React.FC = () => {
     dispatch(cancelSearch())
     setIsValid(true)
     setHelperText(null)
-    setIsClearIcon(false)
   }
 
   return (
