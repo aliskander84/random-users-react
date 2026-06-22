@@ -6,4 +6,4 @@ This app simply get few users from [here](https://randomuser.me/), render them, 
 - TypeScript
 - Material UI
 ## App
-Try the app [here](https://aliskander.github.io/react/)
+Try the app [here](https://aliskander84.github.io/react/)
